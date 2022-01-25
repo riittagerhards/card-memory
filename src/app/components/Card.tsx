@@ -1,8 +1,8 @@
 import React from 'react';
-import CardIcon from '../assets/CardIcon.png';
+import styles from './Card.module.css';
 
 function MemoryCard(): JSX.Element {
-  return <img src={CardIcon} />;
+  return <div className={styles.card}></div>;
 }
 
 export default MemoryCard;

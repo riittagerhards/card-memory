@@ -1,0 +1,10 @@
+.card {
+  background-color: black;
+  height: 14rem;
+  width: 14rem;
+  background-image: url(../assets/CardIcon.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 85%;
+  border-radius: 0.8rem;
+}
