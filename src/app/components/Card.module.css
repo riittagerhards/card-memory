@@ -1,10 +1,13 @@
 .card {
   background-color: black;
-  height: 14rem;
-  width: 14rem;
-  background-image: url(../assets/CardIcon.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 85%;
+  height: 10rem;
+  width: 10rem;
   border-radius: 0.8rem;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
 }
