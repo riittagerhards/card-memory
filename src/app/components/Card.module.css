@@ -1,0 +1,13 @@
+.card {
+  background-color: black;
+  height: 10rem;
+  width: 10rem;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
