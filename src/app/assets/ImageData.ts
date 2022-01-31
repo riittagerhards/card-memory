@@ -16,6 +16,14 @@ export const Images = [
   { src: Icecream2, key: 'image6' },
   { src: Icecream3, key: 'image7' },
   { src: Icecream4, key: 'image8' },
+  { src: Donut1, key: 'image9' },
+  { src: Donut2, key: 'image10' },
+  { src: Donut3, key: 'image11' },
+  { src: Donut4, key: 'image12' },
+  { src: Icecream1, key: 'image13' },
+  { src: Icecream2, key: 'image14' },
+  { src: Icecream3, key: 'image15' },
+  { src: Icecream4, key: 'image16' },
 ];
 
 export default Images;
