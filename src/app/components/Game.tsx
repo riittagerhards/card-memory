@@ -21,7 +21,7 @@ function Game(): JSX.Element {
 
   return (
     <div className={styles.game}>
-      <h1> Lets play card memory 🔖</h1>
+      <h1> 🍩Sweet memory game🍧</h1>
       <div className={styles.cards}>
         {shuffleImages.map((image) => (
           <MemoryCard src={image.src} key={image.key} />
