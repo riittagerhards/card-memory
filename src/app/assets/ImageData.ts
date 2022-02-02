@@ -6,7 +6,6 @@ import Icecream1 from './Icecream1.jpg';
 import Icecream2 from './Icecream2.jpg';
 import Icecream3 from './Icecream3.jpg';
 import Icecream4 from './Icecream4.jpg';
-import CardIcon from './CardIcon.png';
 
 export const Images = [
   { src: Donut1, key: 'image1' },
@@ -27,23 +26,4 @@ export const Images = [
   { src: Icecream4, key: 'image16' },
 ];
 
-export const Background = [
-  { src: CardIcon, key: 'bg1' },
-  { src: CardIcon, key: 'bg2' },
-  { src: CardIcon, key: 'bg3' },
-  { src: CardIcon, key: 'bg4' },
-  { src: CardIcon, key: 'bg5' },
-  { src: CardIcon, key: 'bg6' },
-  { src: CardIcon, key: 'bg7' },
-  { src: CardIcon, key: 'bg8' },
-  { src: CardIcon, key: 'bg9' },
-  { src: CardIcon, key: 'bg10' },
-  { src: CardIcon, key: 'bg11' },
-  { src: CardIcon, key: 'bg12' },
-  { src: CardIcon, key: 'bg13' },
-  { src: CardIcon, key: 'bg14' },
-  { src: CardIcon, key: 'bg15' },
-  { src: CardIcon, key: 'bg16' },
-];
-
-export default { Images, Background };
+export default { Images };
