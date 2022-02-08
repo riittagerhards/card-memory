@@ -1,34 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Game.module.css';
 import MemoryCard from './Card';
 import { Images } from '../assets/ImageData';
 
 function Game(): JSX.Element {
-  const shuffleArray = function (
-    array: Array<{ src: string; key: React.Key | null | undefined }>
-  ) {
-    let currentIndex = array.length;
-    while (0 !== currentIndex) {
-      const randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-      const tmp = Images[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = tmp;
-    }
-    return array;
-  };
+  const [items, setItems] = useState(Images.sort(() => Math.random() - 0.5));
 
-  const shuffleImages = shuffleArray(Images);
+  function handleClick(id: number) {
+    alert(id);
+    setItems([...items]);
+  }
 
   return (
     <div className={styles.game}>
       <h1> 🍩Sweet memory game🍧</h1>
       <div className={styles.cards}>
-        {shuffleImages.map(
-          (image: { src: string; key: React.Key | null | undefined }) => (
-            <MemoryCard src={image.src} key={image.key} />
-          )
-        )}
+        {items.map((item, index) => (
+          <MemoryCard
+            key={index}
+            item={item}
+            id={index}
+            handleClick={handleClick}
+          />
+        ))}
       </div>
     </div>
   );

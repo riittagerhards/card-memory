@@ -8,22 +8,22 @@ import Icecream3 from './Icecream3.jpg';
 import Icecream4 from './Icecream4.jpg';
 
 export const Images = [
-  { src: Donut1, key: 'image1' },
-  { src: Donut2, key: 'image2' },
-  { src: Donut3, key: 'image3' },
-  { src: Donut4, key: 'image4' },
-  { src: Icecream1, key: 'image5' },
-  { src: Icecream2, key: 'image6' },
-  { src: Icecream3, key: 'image7' },
-  { src: Icecream4, key: 'image8' },
-  { src: Donut1, key: 'image9' },
-  { src: Donut2, key: 'image10' },
-  { src: Donut3, key: 'image11' },
-  { src: Donut4, key: 'image12' },
-  { src: Icecream1, key: 'image13' },
-  { src: Icecream2, key: 'image14' },
-  { src: Icecream3, key: 'image15' },
-  { src: Icecream4, key: 'image16' },
+  { id: 1, src: Donut1, stat: '' },
+  { id: 1, src: Donut1, stat: '' },
+  { id: 2, src: Donut2, stat: '' },
+  { id: 2, src: Donut2, stat: '' },
+  { id: 3, src: Donut3, stat: '' },
+  { id: 3, src: Donut3, stat: '' },
+  { id: 4, src: Donut4, stat: '' },
+  { id: 4, src: Donut4, stat: '' },
+  { id: 5, src: Icecream1, stat: '' },
+  { id: 5, src: Icecream1, stat: '' },
+  { id: 6, src: Icecream2, stat: '' },
+  { id: 6, src: Icecream2, stat: '' },
+  { id: 7, src: Icecream3, stat: '' },
+  { id: 7, src: Icecream3, stat: '' },
+  { id: 8, src: Icecream4, stat: '' },
+  { id: 8, src: Icecream4, stat: '' },
 ];
 
 export default { Images };
