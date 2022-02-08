@@ -1,15 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Card.module.css';
 
 type MemoryCardProps = {
   src: string;
-  onClick: () => void;
 };
 
-function MemoryCard({ src, onClick }: MemoryCardProps): JSX.Element {
+function MemoryCard({ src }: MemoryCardProps): JSX.Element {
+  const [isFlipped, setIsFlipped] = useState(true);
+
+  const handleClick = () => {
+    setIsFlipped(!isFlipped);
+    console.log('Card is flipped');
+  };
+
   return (
-    <article className={styles.card}>
-      <img src={src} alt="" onClick={onClick} />
+    <article className={styles.card} onClick={handleClick}>
+      {isFlipped ? (
+        <div className={styles.background}></div>
+      ) : (
+        <img src={src} alt="" />
+      )}
     </article>
   );
 }

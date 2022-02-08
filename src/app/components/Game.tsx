@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './Game.module.css';
 import MemoryCard from './Card';
-import { Images, Background } from '../assets/ImageData';
+import { Images } from '../assets/ImageData';
 
 function Game(): JSX.Element {
-  const [isActive, setActive] = useState(false);
-
   const shuffleArray = function (
     array: Array<{ src: string; key: React.Key | null | undefined }>
   ) {
@@ -22,36 +20,15 @@ function Game(): JSX.Element {
 
   const shuffleImages = shuffleArray(Images);
 
-  const handleClick = () => {
-    setActive(!isActive);
-  };
-
   return (
     <div className={styles.game}>
       <h1> 🍩Sweet memory game🍧</h1>
       <div className={styles.cards}>
-        {isActive
-          ? shuffleImages.map(
-              (image: { src: string; key: React.Key | null | undefined }) => (
-                <MemoryCard
-                  src={image.src}
-                  key={image.key}
-                  onClick={handleClick}
-                />
-              )
-            )
-          : Background.map(
-              (background: {
-                src: string;
-                key: React.Key | null | undefined;
-              }) => (
-                <MemoryCard
-                  src={background.src}
-                  key={background.key}
-                  onClick={handleClick}
-                />
-              )
-            )}
+        {shuffleImages.map(
+          (image: { src: string; key: React.Key | null | undefined }) => (
+            <MemoryCard src={image.src} key={image.key} />
+          )
+        )}
       </div>
     </div>
   );
