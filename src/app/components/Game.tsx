@@ -13,17 +13,14 @@ function Game(): JSX.Element {
 
   return (
     <div className={styles.game}>
-      <h1> 🍩Sweet memory game🍧</h1>
-      <div className={styles.cards}>
-        {items.map((item, index) => (
-          <MemoryCard
-            key={index}
-            item={item}
-            id={index}
-            handleClick={handleClick}
-          />
-        ))}
-      </div>
+      {items.map((item, index) => (
+        <MemoryCard
+          key={index}
+          item={item}
+          id={index}
+          handleClick={handleClick}
+        />
+      ))}
     </div>
   );
 }

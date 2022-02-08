@@ -1,22 +1,40 @@
 .card {
-  background-color: black;
   height: 10rem;
   width: 10rem;
   border-radius: 0.8rem;
   overflow: hidden;
   object-fit: cover;
+  background-color: #000;
+  background-image: url('../assets/CardIcon.png');
+  background-size: contain;
+  transform: rotateY(180deg);
+  animation: 2s hideCard linear;
+  transition: transform 0.5s;
+}
+@keyframes hideCard {
+  0%,
+  70% {
+    transform: rotateY(0);
+  }
+  100% {
+    transform: rotateY(180deg);
+  }
 }
 
 .card img {
   width: 100%;
   height: auto;
+  transition: transform 0.5s;
+  transform: scale(0);
+  animation: 1s hideImage ease-out;
 }
 
-.background {
-  background-color: black;
-  height: 10rem;
-  width: 10rem;
-  border-radius: 0.8rem;
-  background-image: url('../assets/CardIcon.png');
-  background-size: contain;
+@keyframes hideImage {
+  0%,
+  70% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
 }
