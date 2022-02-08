@@ -13,5 +13,7 @@ body {
   display: flex;
   align-content: center;
   justify-content: center;
-  background-color: rgb(210, 245, 247);
+  background-image: url(../app/assets/Background.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
