@@ -9,7 +9,10 @@ type MemoryCardProps = {
 
 function MemoryCard({ item, handleClick, id }: MemoryCardProps): JSX.Element {
   return (
-    <article className={styles.card} onClick={() => handleClick(id)}>
+    <article
+      className={item.stat ? styles.cardActive : styles.card}
+      onClick={() => handleClick(id)}
+    >
       <img src={item.src} alt="" />
     </article>
   );

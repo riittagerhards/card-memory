@@ -6,6 +6,8 @@ import { Images } from '../assets/ImageData';
 function Game(): JSX.Element {
   const [items, setItems] = useState(Images.sort(() => Math.random() - 0.5));
 
+  //  const [previous, setPrevious] = useState(-1);
+
   function handleClick(id: number) {
     alert(id);
     setItems([...items]);
