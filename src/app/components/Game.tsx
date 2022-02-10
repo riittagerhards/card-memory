@@ -5,8 +5,8 @@ import { Images } from '../assets/ImageData';
 
 function Game(): JSX.Element {
   const [items, setItems] = useState(Images.sort(() => Math.random() - 0.5));
-
   const [previous, setPrevious] = useState(-1);
+  const [count, setCount] = useState(0);
 
   function checkMatch(current: number) {
     if (items[current].id == items[previous].id) {
@@ -27,7 +27,11 @@ function Game(): JSX.Element {
     }
   }
 
+  const allActive = Images.every((item) => item.stat === 'correct');
+
   function handleClick(id: number) {
+    setCount(count + 1);
+    console.log(count);
     if (previous === -1) {
       items[id].stat = 'active';
       setItems([...items]);
@@ -38,15 +42,25 @@ function Game(): JSX.Element {
   }
 
   return (
-    <div className={styles.game}>
-      {items.map((item, index) => (
-        <MemoryCard
-          key={index}
-          item={item}
-          id={index}
-          handleClick={handleClick}
-        />
-      ))}
+    <div>
+      <div className={styles.game}>
+        {items.map((item, index) => (
+          <MemoryCard
+            key={index}
+            item={item}
+            id={index}
+            handleClick={handleClick}
+          />
+        ))}
+      </div>
+      {allActive ? (
+        <p>
+          Congratulations! You needed {count} clicks = {count / 2} attempts to
+          win 🍨
+        </p>
+      ) : (
+        <p>Go for it!</p>
+      )}
     </div>
   );
 }
