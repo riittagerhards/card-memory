@@ -6,11 +6,35 @@ import { Images } from '../assets/ImageData';
 function Game(): JSX.Element {
   const [items, setItems] = useState(Images.sort(() => Math.random() - 0.5));
 
-  //  const [previous, setPrevious] = useState(-1);
+  const [previous, setPrevious] = useState(-1);
+
+  function checkMatch(current: number) {
+    if (items[current].id == items[previous].id) {
+      items[current].stat = 'correct';
+      items[previous].stat = 'correct';
+      setItems([...items]);
+      setPrevious(-1);
+    } else {
+      items[current].stat = 'wrong';
+      items[previous].stat = 'wrong';
+      setItems([...items]);
+      setTimeout(() => {
+        items[current].stat = '';
+        items[previous].stat = '';
+        setItems([...items]);
+        setPrevious(-1);
+      }, 100);
+    }
+  }
 
   function handleClick(id: number) {
-    alert(id);
-    setItems([...items]);
+    if (previous === -1) {
+      items[id].stat = 'active';
+      setItems([...items]);
+      setPrevious(id);
+    } else {
+      checkMatch(id);
+    }
   }
 
   return (
