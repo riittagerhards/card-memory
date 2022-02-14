@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styles from './Game.module.css';
 import MemoryCard from './Card';
 import { Images } from '../assets/ImageData';
+import CloudSun from '../assets/CloudSun.svg';
 
 function Game(): JSX.Element {
   const [items, setItems] = useState(Images.sort(() => Math.random() - 0.5));
@@ -41,8 +42,17 @@ function Game(): JSX.Element {
     }
   }
 
+  const evenCount = Math.round(count / 2);
+
   return (
     <div>
+      <article className={styles.container}>
+        <h1 className={styles.title}> Sweet memory game</h1>
+        <div className={styles.tries}>
+          <p className={styles.counter}> {evenCount}</p>
+          <img src={CloudSun} alt="cloud" className={styles.cloud} />
+        </div>
+      </article>
       <div className={styles.game}>
         {items.map((item, index) => (
           <MemoryCard
@@ -53,14 +63,7 @@ function Game(): JSX.Element {
           />
         ))}
       </div>
-      {allActive ? (
-        <p>
-          Congratulations! You needed {count} clicks = {count / 2} attempts to
-          win 🍨
-        </p>
-      ) : (
-        <p>Go for it!</p>
-      )}
+      {allActive ? <h1>Congratulations! You won 🍨</h1> : <h1>Go for it!</h1>}
     </div>
   );
 }
