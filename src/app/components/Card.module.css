@@ -54,3 +54,15 @@
   height: auto;
   transform: scale(1);
 }
+
+@media screen and (max-width: 650px) {
+  .card {
+    height: 5rem;
+    width: 5rem;
+  }
+
+  .cardActive {
+    height: 5rem;
+    width: 5rem;
+  }
+}

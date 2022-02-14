@@ -1,4 +1,9 @@
 .container {
   text-align: center;
   padding: 0.5rem;
+  width: 100vw;
+  height: auto;
+  align-self: center;
+  justify-self: center;
+  margin-top: 2rem;
 }
