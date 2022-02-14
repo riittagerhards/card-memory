@@ -6,3 +6,13 @@
   justify-items: center;
   gap: 0.5rem;
 }
+
+@media screen and (max-width: 650px) {
+  .game {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+    align-items: center;
+    justify-items: center;
+    gap: 0.5rem;
+  }
+}
