@@ -32,7 +32,6 @@ function Game(): JSX.Element {
 
   function handleClick(id: number) {
     setCount(count + 1);
-    console.log(count);
     if (previous === -1) {
       items[id].stat = 'active';
       setItems([...items]);
@@ -43,6 +42,12 @@ function Game(): JSX.Element {
   }
 
   const evenCount = Math.round(count / 2);
+
+  function handleStart() {
+    setCount(0);
+    Images.map((item) => (item.stat = ''));
+    setItems(Images.sort(() => Math.random() - 0.5));
+  }
 
   return (
     <div>
@@ -63,7 +68,16 @@ function Game(): JSX.Element {
           />
         ))}
       </div>
-      {allActive ? <h1>Congratulations! You won 🍨</h1> : <h1>Go for it!</h1>}
+      {allActive ? (
+        <label className={styles.gameEnd}>
+          <h1>Congratulations! You won 🍨</h1>
+          <h2 className={styles.restart} onClick={handleStart}>
+            Start a new game
+          </h2>
+        </label>
+      ) : (
+        <h1>Go for it!</h1>
+      )}
     </div>
   );
 }
