@@ -8,6 +8,7 @@ function Game(): JSX.Element {
   const [items, setItems] = useState(Images.sort(() => Math.random() - 0.5));
   const [previous, setPrevious] = useState(-1);
   const [count, setCount] = useState(0);
+  const [highScore, setHighScore] = useState(100);
 
   function checkMatch(current: number) {
     if (items[current].id == items[previous].id) {
@@ -42,6 +43,22 @@ function Game(): JSX.Element {
   }
 
   const evenCount = Math.round(count / 2);
+
+  const endGame = function () {
+    if (allActive) {
+      const score = evenCount;
+      if (score < highScore) {
+        setHighScore(score);
+        const saveScore = JSON.stringify(highScore);
+        localStorage.setItem('gamehighscore', saveScore);
+        console.log(score);
+        console.log(saveScore);
+        console.log(highScore);
+      }
+    }
+  };
+
+  endGame();
 
   function handleStart() {
     setCount(0);
