@@ -8,7 +8,7 @@ function Game(): JSX.Element {
   const [items, setItems] = useState(Images.sort(() => Math.random() - 0.5));
   const [previous, setPrevious] = useState(-1);
   const [count, setCount] = useState(0);
-  const [highScore, setHighScore] = useState(Number);
+  const [highScore, setHighScore] = useState(0);
 
   function checkMatch(current: number) {
     if (items[current].id == items[previous].id) {
@@ -60,6 +60,8 @@ function Game(): JSX.Element {
     console.log(savedScore);
   });
 
+  const showHighScore = localStorage.getItem('gameHighScore');
+
   function handleStart() {
     setCount(0);
     Images.map((item) => (item.stat = ''));
@@ -68,6 +70,11 @@ function Game(): JSX.Element {
 
   return (
     <div>
+      {showHighScore === '0' || !showHighScore ? (
+        <p>High score: -</p>
+      ) : (
+        <p>High score: {showHighScore}</p>
+      )}
       <article className={styles.container}>
         <h1 className={styles.title}> Sweet memory game</h1>
         <div className={styles.tries}>
