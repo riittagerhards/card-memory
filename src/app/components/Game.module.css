@@ -52,3 +52,27 @@
     height: 4rem;
   }
 }
+
+.gameEnd {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.restart {
+  background-color: #6d4534;
+  width: 50vw;
+  height: 1.5em;
+  text-align: center;
+  border-radius: 15px;
+  color: #feefc2;
+  padding: 0.1rem;
+}
+
+.restart:active {
+  transform: translateY(2px);
+}
+
+.restart:hover {
+  background-color: #8f82c8;
+}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Game.module.css';
 import MemoryCard from './Card';
 import { Images } from '../assets/ImageData';
@@ -8,6 +8,7 @@ function Game(): JSX.Element {
   const [items, setItems] = useState(Images.sort(() => Math.random() - 0.5));
   const [previous, setPrevious] = useState(-1);
   const [count, setCount] = useState(0);
+  const [highScore, setHighScore] = useState(0);
 
   function checkMatch(current: number) {
     if (items[current].id == items[previous].id) {
@@ -32,7 +33,6 @@ function Game(): JSX.Element {
 
   function handleClick(id: number) {
     setCount(count + 1);
-    console.log(count);
     if (previous === -1) {
       items[id].stat = 'active';
       setItems([...items]);
@@ -44,8 +44,37 @@ function Game(): JSX.Element {
 
   const evenCount = Math.round(count / 2);
 
+  useEffect(() => {
+    if (!allActive) {
+      return;
+    } else {
+      if (highScore === 0) {
+        setHighScore(evenCount);
+      } else if (evenCount < highScore) {
+        setHighScore(evenCount);
+      }
+    }
+    console.log(highScore);
+    const savedScore = JSON.stringify(highScore);
+    localStorage.setItem('gameHighScore', savedScore);
+    console.log(savedScore);
+  });
+
+  const showHighScore = localStorage.getItem('gameHighScore');
+
+  function handleStart() {
+    setCount(0);
+    Images.map((item) => (item.stat = ''));
+    setItems(Images.sort(() => Math.random() - 0.5));
+  }
+
   return (
     <div>
+      {showHighScore === '0' || !showHighScore ? (
+        <p>High score: -</p>
+      ) : (
+        <p>High score: {showHighScore}</p>
+      )}
       <article className={styles.container}>
         <h1 className={styles.title}> Sweet memory game</h1>
         <div className={styles.tries}>
@@ -63,7 +92,16 @@ function Game(): JSX.Element {
           />
         ))}
       </div>
-      {allActive ? <h1>Congratulations! You won 🍨</h1> : <h1>Go for it!</h1>}
+      {allActive ? (
+        <label className={styles.gameEnd}>
+          <h1>Congratulations! You won 🍨</h1>
+          <h2 className={styles.restart} onClick={handleStart}>
+            Start a new game
+          </h2>
+        </label>
+      ) : (
+        <h1>Go for it!</h1>
+      )}
     </div>
   );
 }
