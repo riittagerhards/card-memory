@@ -1,0 +1,28 @@
+.popup {
+  width: 90%;
+  height: auto;
+  font-size: 0.6rem;
+  text-align: justify;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background: #fff;
+  border-radius: 0.8rem;
+  padding: 1rem;
+  border: 1px dotted #747171;
+  overflow: auto;
+}
+
+.closeIcon {
+  cursor: pointer;
+  position: absolute;
+  right: 0.2rem;
+  top: 0.2rem;
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  line-height: 0.8rem;
+  text-align: center;
+  border: solid 1px #e92863;
+  font-size: 0.75rem;
+}
